@@ -5,12 +5,10 @@ export default function About() {
     <section className="min-h-screen flex justify-center items-center py-16" id='sobre'>
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-8 items-center">
-          <div className="space-y-6 flex flex-col item-center">
+          <div className="space-y-6 flex flex-col items-center">
             <h2 className={`text-4xl md:text-5xl font-bold`}>Sobre Nossa Empresa</h2>
-            <p className="text-lg text-gray-600">
-              Nossa empresa é dedicada a fornecer soluções inovadoras que transformam a maneira como as pessoas
-              trabalham e vivem. Com anos de experiência e uma equipe apaixonada, estamos comprometidos em
-              fazer a diferença em cada projeto que realizamos.
+            <p className="text-lg text-justify">
+              Nossa empresa é dedicada a fornecer soluções inovadoras que transformam a maneira como as pessoas trabalham e vivem. Com anos de experiência e uma equipe apaixonada, estamos comprometidos em fazer a diferença em cada projeto que realizamos.
             </p>
             <div className="space-y-4">
               <h3 className={`text-2xl font-semibold`}>Nossa Essência</h3>

@@ -6,8 +6,7 @@ import { Button } from "../ui/button"
 export default function Hero() {
 
   return (
-    <div className="">
-      <div className="mx-auto flex flex-col justify-start min-h-screen max-w-3xl py-32">
+      <div className="mx-auto flex flex-col justify-start min-h-screen max-w-3xl py-32" id="home">
         <div className="hidden sm:mb-8 sm:flex sm:justify-center">
           <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
             Venha conhecer nossos serviços.{' '}
@@ -24,7 +23,7 @@ export default function Hero() {
           <p className="mt-8 text-pretty text-lg font-medium text-gray-500 sm:text-xl/8">
             Solução para reduzir e facilitar o tempo de troca e substituição de aulas atravéz da nossa base de dados.
           </p>
-          <div className="mt-10 flex items-center justify-center gap-x-6">
+          <div className="mt-10 flex items-center justify-center gap-x-6 flex-wrap">
             <Link href='#'>
               <Button size={'lg'}>
                 Fazer Login
@@ -38,6 +37,5 @@ export default function Hero() {
           </div>
         </div>
       </div>
-    </div>
   )
 }
