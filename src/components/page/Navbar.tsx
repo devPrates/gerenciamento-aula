@@ -7,7 +7,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '../ui/button';
 
-const SECTIONS = ["home", "turmas", "sobre", "serviços", "contato"];
+const SECTIONS = ["home", "horários", "sobre", "serviços", "contato"];
 
 const scrollToSection = (id: string) => {
   const element = document.getElementById(id);
