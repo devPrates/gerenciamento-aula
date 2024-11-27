@@ -32,6 +32,7 @@ import {
 } from "@/components/ui/pagination"
 import { UserForm } from './UserForm'
 import { getUsers, deleteUser } from './actions'
+import { SquarePen, Trash2 } from 'lucide-react'
 
 export function UserTable() {
   const router = useRouter()
@@ -66,17 +67,17 @@ export function UserTable() {
   }
 
   return (
-    <>
+    <section className='container mx-auto'>
       <div className="flex justify-end mb-4">
-        <Button onClick={() => setIsAddUserOpen(true)}>Add User</Button>
+        <Button onClick={() => setIsAddUserOpen(true)}>Adicionar Usuário</Button>
       </div>
       <Table>
-        <TableHeader>
+        <TableHeader className='bg-gray-100'>
           <TableRow>
-            <TableHead>Name</TableHead>
+            <TableHead>Nome</TableHead>
             <TableHead>Email</TableHead>
             <TableHead>Role</TableHead>
-            <TableHead>Actions</TableHead>
+            <TableHead>Ações</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -86,11 +87,11 @@ export function UserTable() {
               <TableCell>{user.email}</TableCell>
               <TableCell>{user.role}</TableCell>
               <TableCell>
-                <Button variant="outline" className="mr-2" onClick={() => setEditingUser(user)}>
-                  Edit
+                <Button size={'icon'} className="mr-2 text-black bg-yellow-400 hover:bg-yellow-300 transition-colors" onClick={() => setEditingUser(user)}>
+                  <SquarePen />
                 </Button>
-                <Button variant="destructive" onClick={() => setDeletingUserId(user.id || null)}>
-                  Delete
+                <Button size={'icon'} variant="destructive" onClick={() => setDeletingUserId(user.id || null)}>
+                  <Trash2 />
                 </Button>
               </TableCell>
             </TableRow>
@@ -159,18 +160,18 @@ export function UserTable() {
       <AlertDialog open={!!deletingUserId} onOpenChange={() => setDeletingUserId(null)}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Are you sure you want to delete this user?</AlertDialogTitle>
+            <AlertDialogTitle>Tem certeza de que deseja excluir este usuário?</AlertDialogTitle>
             <AlertDialogDescription>
-              This action cannot be undone.
+            Esta ação não pode ser desfeita.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction onClick={handleDeleteUser}>Delete</AlertDialogAction>
+            <AlertDialogCancel>Cancelar</AlertDialogCancel>
+            <AlertDialogAction onClick={handleDeleteUser}>Excluir</AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
-    </>
+    </section>
   )
 }
 

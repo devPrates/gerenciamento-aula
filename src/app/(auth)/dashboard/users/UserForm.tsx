@@ -39,12 +39,12 @@ export function UserForm({ user, isOpen, onClose }: UserFormProps) {
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>{user ? 'Edit User' : 'Add New User'}</DialogTitle>
+          <DialogTitle>{user ? 'Editar usuário' : 'Adicionar novo usuário'}</DialogTitle>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
           {user && <input type="hidden" name="id" value={user.id} />}
           <div>
-            <Label htmlFor="name">Name</Label>
+            <Label htmlFor="name">Nome</Label>
             <Input id="name" name="name" defaultValue={user?.name} required />
           </div>
           <div>
@@ -55,7 +55,7 @@ export function UserForm({ user, isOpen, onClose }: UserFormProps) {
             <Label htmlFor="role">Role</Label>
             <Select name="role" defaultValue={user?.role ?? 'User'}>
               <SelectTrigger>
-                <SelectValue placeholder="Select a role" />
+                <SelectValue placeholder="Selecione a role" />
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="Admin">Admin</SelectItem>
@@ -64,7 +64,7 @@ export function UserForm({ user, isOpen, onClose }: UserFormProps) {
             </Select>
           </div>
           {error && <p className="text-red-500">{error}</p>}
-          <Button type="submit">{user ? 'Update' : 'Add'} User</Button>
+          <Button type="submit">{user ? 'Atualizar' : 'Adicionar'} usuário</Button>
         </form>
       </DialogContent>
     </Dialog>
