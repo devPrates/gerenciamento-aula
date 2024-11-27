@@ -7,11 +7,12 @@ export function Footer() {
     <footer className="bg-gray-100 text-gray-600 py-12">
       <div className="container mx-auto px-4 flex flex-col items-center justify-center">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Logo e Descrição */}
           <div className="space-y-4">
             <Link href="/" className="">
               <Image 
                 src="/logo.svg" 
-                alt="Logo da Empresa" 
+                alt="Logo da ClassExchange"  // Adicionando uma descrição mais clara
                 width={60} 
                 height={60}
                 className="rounded-full"
@@ -22,8 +23,9 @@ export function Footer() {
             </p>
           </div>
           
+          {/* Links Rápidos */}
           <div>
-            <h3 className={`text-xl font-semibold mb-4`}>Links Rápidos</h3>
+            <h3 className="text-xl font-semibold mb-4">Links Rápidos</h3>
             <ul className="space-y-2">
               <li><Link href="/" className="hover:text-primary transition-colors">Início</Link></li>
               <li><Link href="/sobre" className="hover:text-primary transition-colors">Sobre Nós</Link></li>
@@ -32,8 +34,9 @@ export function Footer() {
             </ul>
           </div>
           
+          {/* Contato */}
           <div>
-            <h3 className={`text-xl font-bold mb-4`} >Contato</h3>
+            <h3 className="text-xl font-bold mb-4">Contato</h3>
             <ul className="space-y-2">
               <li className="flex items-center space-x-2">
                 <MapPin size={18} />
@@ -50,28 +53,30 @@ export function Footer() {
             </ul>
           </div>
           
+          {/* Redes Sociais */}
           <div>
-            <h3 className={`text-xl font-bold mb-4`} >Siga-nos</h3>
+            <h3 className="text-xl font-bold mb-4">Siga-nos</h3>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-primary transition-colors" aria-label="Facebook">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-colors" aria-label="Facebook">
                 <Facebook size={24} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-primary transition-colors" aria-label="Twitter">
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-colors" aria-label="Twitter">
                 <Twitter size={24} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-primary transition-colors" aria-label="Instagram">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-colors" aria-label="Instagram">
                 <Instagram size={24} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-primary transition-colors" aria-label="LinkedIn">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-colors" aria-label="LinkedIn">
                 <Linkedin size={24} />
               </a>
             </div>
           </div>
         </div>
         
+        {/* Rodapé */}
         <div className="mt-8 pt-8 border-t border-gray-200 text-center">
           <p className="text-sm">
-            © {new Date().getFullYear()} ClassExchage. Todos os direitos reservados.
+            © {new Date().getFullYear()} ClassExchange. Todos os direitos reservados.
           </p>
         </div>
       </div>
