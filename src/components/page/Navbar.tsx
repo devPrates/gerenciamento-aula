@@ -97,7 +97,7 @@ const DesktopMenu = ({ activeSection }: { activeSection: string }) => (
 
 const LoginButton = () => (
   <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-    <Link href="/">
+    <Link href="/dashboard">
       <Button size="sm" variant="outline">
         Login
       </Button>
@@ -147,7 +147,7 @@ const MobileMenu = ({
             ))}
           </div>
           <div className="py-6">
-            <Link href="/" className="">
+            <Link href="/dashboard" className="">
               <Button size={'sm'} variant={'outline'}>
                   Login
               </Button>
