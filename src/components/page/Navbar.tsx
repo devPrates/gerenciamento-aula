@@ -6,6 +6,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '../ui/button';
+import { ModeToggle } from '../ToggleDarkMode';
 
 const SECTIONS = ["home", "horários", "sobre", "serviços", "contato"];
 
@@ -44,7 +45,7 @@ export default function Navbar() {
   }, [activeSection]);
 
   return (
-    <header className={`sticky inset-x-0 top-0 z-50 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'}`}>
+    <header className={`sticky inset-x-0 top-0 z-50 ${isScrolled ? 'bg-white shadow-md dark:bg-black dark:text-white' : 'bg-transparent'}`}>
       <nav className="container mx-auto flex items-center justify-between p-4">
         <Logo />
         <MobileMenuButton onOpen={() => setMobileMenuOpen(true)} />
@@ -71,7 +72,7 @@ const MobileMenuButton = ({ onOpen }: { onOpen: () => void }) => (
     <button
       type="button"
       onClick={onOpen}
-      className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+      className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 dark:text-white"
     >
       <span className="sr-only">Abrir menu</span>
       <Bars3Icon className="h-6 w-6" />
@@ -85,9 +86,8 @@ const DesktopMenu = ({ activeSection }: { activeSection: string }) => (
       <button
         key={section}
         onClick={() => scrollToSection(section)}
-        className={`${
-          activeSection === section ? 'text-green-500' : ''
-        } hover:underline`}
+        className={`${activeSection === section ? 'text-green-500' : ''
+          } hover:underline`}
       >
         {capitalize(section)}
       </button>
@@ -96,7 +96,8 @@ const DesktopMenu = ({ activeSection }: { activeSection: string }) => (
 );
 
 const LoginButton = () => (
-  <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+  <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-2 lg:items-center">
+    <ModeToggle />
     <Link href="/dashboard">
       <Button size="sm" variant="outline">
         Login
@@ -116,13 +117,13 @@ const MobileMenu = ({
 }) => (
   <Dialog open={isOpen} onClose={onClose} className="lg:hidden">
     <div className="fixed inset-0 z-50" />
-    <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+    <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 dark:bg-black dark:text-white">
       <div className="flex items-center justify-between">
         <Logo />
         <button
           type="button"
           onClick={onClose}
-          className="-m-2.5 rounded-md p-2.5 text-gray-700"
+          className="-m-2.5 rounded-md p-2.5 text-gray-700 dark:text-white"
         >
           <span className="sr-only">Fechar menu</span>
           <XMarkIcon className="h-6 w-6" />
@@ -138,20 +139,22 @@ const MobileMenu = ({
                   scrollToSection(section);
                   onClose();
                 }}
-                className={`${
-                  activeSection === section ? 'text-green-500' : ''
-                } hover:underline`}
+                className={`${activeSection === section ? 'text-green-500' : ''
+                  } hover:underline`}
               >
                 {capitalize(section)}
               </button>
             ))}
           </div>
           <div className="py-6">
-            <Link href="/dashboard" className="">
-              <Button size={'sm'} variant={'outline'}>
+            <div className='flex gap-2'>
+              <ModeToggle />
+              <Link href="/dashboard" className="">
+                <Button size={'sm'} variant={'outline'}>
                   Login
-              </Button>
-            </Link>
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

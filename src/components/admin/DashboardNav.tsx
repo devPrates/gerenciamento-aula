@@ -62,12 +62,12 @@ export function DashboardNav() {
             variant={pathname === item.href ? "secondary" : "ghost"}
             className={cn(
               "w-full justify-start",
-              pathname === item.href && "bg-muted font-bold hover:bg-muted"
+              pathname === item.href && "bg-green-300 font-bold hover:bg-green-200"
             )}
             asChild
           >
             <Link href={item.href}>
-              <item.icon className="mr-2 h-4 w-4" />
+              <item.icon className="mr-2 h-8 w-8" />
               {item.title}
             </Link>
           </Button>
