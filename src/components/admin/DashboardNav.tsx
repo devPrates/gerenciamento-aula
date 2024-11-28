@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { LayoutDashboard, Users, ShoppingBag, BarChart2, Settings } from 'lucide-react'
+import { LayoutDashboard, Users, BarChart2, Settings, Replace, School, GraduationCap, BookType, WalletCards } from 'lucide-react'
 
 export function DashboardNav() {
   const pathname = usePathname()
@@ -17,14 +17,29 @@ export function DashboardNav() {
       icon: LayoutDashboard,
     },
     {
-      title: "Usuários",
+      title: "Campus",
+      href: "/dashboard/campus",
+      icon: School,
+    },
+    {
+      title: "Cursos",
+      href: "/dashboard/cursos",
+      icon: WalletCards,
+    },
+    {
+      title: "Turmas",
+      href: "/dashboard/turmas",
+      icon: BookType,
+    },
+    {
+      title: "Professores",
       href: "/dashboard/users",
-      icon: Users,
+      icon: GraduationCap,
     },
     {
       title: "Substituição",
       href: "/dashboard/substituicao",
-      icon: ShoppingBag,
+      icon: Replace,
     },
     {
       title: "Troca de Aula",

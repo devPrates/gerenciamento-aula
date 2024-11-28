@@ -56,3 +56,16 @@ export const mockClasses: ClassData[] = [
     },
 ];
 
+
+export interface University {
+    id: string
+    name: string
+    acronym: string
+    email: string
+    phone: string
+    address: string
+    director: string
+  }
+  
+  
+
