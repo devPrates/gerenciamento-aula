@@ -1,19 +1,16 @@
-import Link from 'next/link'
+import { Suspense } from 'react'
+import { CampusTable } from './CampusTable'
+import { getCampus } from './actions'
 
-import { Button } from "@/components/ui/button"
-import { fetchUniversities } from './universityActions'
-import UniversityTable from './UniversityTable'
-
-export default async function DashboardPage() {
-  const universities = await fetchUniversities()
+export default async function CampusPage() {
+  const initialData = await getCampus(1)
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6">University Dashboard</h1>
-      <Link href="/dashboard/campus/new">
-        <Button className="mb-4">Add New University</Button>
-      </Link>
-      <UniversityTable universities={universities} />
+    <div className="mx-6 py-10">
+      <h1 className="text-2xl font-bold mb-5">Controle de Campus</h1>
+      <Suspense fallback={<div>Loading...</div>}>
+        <CampusTable />
+      </Suspense>
     </div>
   )
 }

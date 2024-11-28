@@ -29,34 +29,34 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination"
-import { UserForm } from './UserForm'
-import { getUsers, deleteUser } from './actions'
+import { CampusForm } from './CampusForm'
+import { getCampus, deleteCampus } from './actions'
 import { SquarePen, Trash2 } from 'lucide-react'
 
-export function UserTable() {
+export function CampusTable() {
   const router = useRouter()
-  const [users, setUsers] = useState<any[]>([])
+  const [campus, setCampus] = useState<any[]>([])
   const [totalPages, setTotalPages] = useState(1)
   const [currentPage, setCurrentPage] = useState(1)
-  const [isAddUserOpen, setIsAddUserOpen] = useState(false)
-  const [editingUser, setEditingUser] = useState<any | null>(null)
-  const [deletingUserId, setDeletingUserId] = useState<string | null>(null)
+  const [isAddCampusOpen, setIsAddCampusOpen] = useState(false)
+  const [editingCampus, setEditingCampus] = useState<any | null>(null)
+  const [deletingCampusId, setDeletingCampusId] = useState<string | null>(null)
 
   useEffect(() => {
-    fetchUsers(currentPage)
+    fetchCampus(currentPage)
   }, [currentPage])
 
-  const fetchUsers = async (page: number) => {
-    const result = await getUsers(page)
-    setUsers(result.users)
+  const fetchCampus = async (page: number) => {
+    const result = await getCampus(page)
+    setCampus(result.campus)
     setTotalPages(result.totalPages)
   }
 
-  const handleDeleteUser = async () => {
-    if (deletingUserId) {
-      await deleteUser(deletingUserId)
-      await fetchUsers(currentPage)
-      setDeletingUserId(null)
+  const handleDeleteCampus = async () => {
+    if (deletingCampusId) {
+      await deleteCampus(deletingCampusId)
+      await fetchCampus(currentPage)
+      setDeletingCampusId(null)
       router.refresh()
     }
   }
@@ -68,28 +68,34 @@ export function UserTable() {
   return (
     <section className='container mx-auto'>
       <div className="flex justify-end mb-4">
-        <Button onClick={() => setIsAddUserOpen(true)}>Adicionar Usuário</Button>
+        <Button onClick={() => setIsAddCampusOpen(true)}>Adicionar Campus</Button>
       </div>
       <Table>
         <TableHeader className='bg-gray-100'>
           <TableRow>
             <TableHead>Nome</TableHead>
+            <TableHead>Acrônimo</TableHead>
             <TableHead>Email</TableHead>
-            <TableHead>Role</TableHead>
+            <TableHead>Telefone</TableHead>
+            <TableHead>Endereço</TableHead>
+            <TableHead>Diretor</TableHead>
             <TableHead>Ações</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {users.map((user) => (
-            <TableRow key={user.id}>
-              <TableCell>{user.name}</TableCell>
-              <TableCell>{user.email}</TableCell>
-              <TableCell>{user.role}</TableCell>
+          {campus.map((campus) => (
+            <TableRow key={campus.id}>
+              <TableCell>{campus.name}</TableCell>
+              <TableCell>{campus.acronym}</TableCell>
+              <TableCell>{campus.email}</TableCell>
+              <TableCell>{campus.phone}</TableCell>
+              <TableCell>{campus.address}</TableCell>
+              <TableCell>{campus.director}</TableCell>
               <TableCell>
-                <Button size={'icon'} className="mr-2 text-black bg-yellow-400 hover:bg-yellow-300 transition-colors" onClick={() => setEditingUser(user)}>
+                <Button size={'icon'} className="mr-2 text-black bg-yellow-400 hover:bg-yellow-300 transition-colors" onClick={() => setEditingCampus(campus)}>
                   <SquarePen />
                 </Button>
-                <Button size={'icon'} variant="destructive" onClick={() => setDeletingUserId(user.id || null)}>
+                <Button size={'icon'} variant="destructive" onClick={() => setDeletingCampusId(campus.id || null)}>
                   <Trash2 />
                 </Button>
               </TableCell>
@@ -137,36 +143,36 @@ export function UserTable() {
         </Pagination>
       </div>
 
-      <UserForm
-        isOpen={isAddUserOpen}
+      <CampusForm
+        isOpen={isAddCampusOpen}
         onClose={() => {
-          setIsAddUserOpen(false)
-          fetchUsers(currentPage)
+          setIsAddCampusOpen(false)
+          fetchCampus(currentPage)
         }}
       />
 
-      {editingUser && (
-        <UserForm
-          user={editingUser}
+      {editingCampus && (
+        <CampusForm
+          campus={editingCampus}
           isOpen={true}
           onClose={() => {
-            setEditingUser(null)
-            fetchUsers(currentPage)
+            setEditingCampus(null)
+            fetchCampus(currentPage)
           }}
         />
       )}
 
-      <AlertDialog open={!!deletingUserId} onOpenChange={() => setDeletingUserId(null)}>
+      <AlertDialog open={!!deletingCampusId} onOpenChange={() => setDeletingCampusId(null)}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Tem certeza de que deseja excluir este usuário?</AlertDialogTitle>
+            <AlertDialogTitle>Tem certeza de que deseja excluir este Campus?</AlertDialogTitle>
             <AlertDialogDescription>
             Esta ação não pode ser desfeita.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel>Cancelar</AlertDialogCancel>
-            <AlertDialogAction onClick={handleDeleteUser}>Excluir</AlertDialogAction>
+            <AlertDialogAction onClick={handleDeleteCampus}>Excluir</AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
