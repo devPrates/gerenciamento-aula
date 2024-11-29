@@ -24,7 +24,7 @@ export default function NavMain({
 
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
-      <SidebarGroupLabel>Projects</SidebarGroupLabel>
+      <SidebarGroupLabel>Opções</SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => {
           const isActive = pathname === item.url; // Verifica se a URL atual corresponde ao item
@@ -34,7 +34,7 @@ export default function NavMain({
                 <a
                   href={item.url}
                   className={clsx(
-                    "flex items-center gap-2 p-2 rounded",
+                    "flex items-center gap-2 p-2 rounded text-black dark:text-white font-semibold",
                     isActive && "bg-green-500 text-white" // Classe para item ativo
                   )}
                 >
