@@ -9,7 +9,7 @@ import {
 import { ModeToggle } from "@/components/ToggleDarkMode";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Accessibility, Bell, ChartArea } from "lucide-react";
+import { Accessibility, Bell } from "lucide-react";
 
 
 
@@ -28,7 +28,7 @@ export default function DashboardLayout({
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2">
+        <header className="flex h-16 shrink-0 border-b-[1px] items-center gap-2">
           <div className="flex items-center gap-2 px-4">
             <SidebarTrigger className="-ml-1" />
             <Separator orientation="vertical" className="mr-2 h-4" />
@@ -37,13 +37,11 @@ export default function DashboardLayout({
                 <Input type="text" placeholder="Pesquisar..." />
                 <Button type="submit">Buscar</Button>
               </form>
-              <Bell />
-              <Accessibility />
               <ModeToggle />
             </div>
           </div>
         </header>
-        <main className="mx-10 border h-full">
+        <main className="mx-10 h-full">
           {children}
         </main>
       </SidebarInset>
