@@ -66,4 +66,3 @@ export async function deleteUser(id: string) {
   revalidatePath('/users')
   return { success: true }
 }
-

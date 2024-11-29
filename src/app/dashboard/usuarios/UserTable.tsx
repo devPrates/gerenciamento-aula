@@ -67,7 +67,7 @@ export function UserTable() {
 
   return (
     <section className='container mx-auto'>
-      <div className="flex justify-end mb-4">
+      <div className="flex mb-4">
         <Button onClick={() => setIsAddUserOpen(true)}>Adicionar Usuário</Button>
       </div>
       <Table>
@@ -173,4 +173,3 @@ export function UserTable() {
     </section>
   )
 }
-
