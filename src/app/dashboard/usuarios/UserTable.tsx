@@ -31,7 +31,7 @@ import {
 } from "@/components/ui/pagination"
 import { UserForm } from './UserForm'
 import { getUsers, deleteUser } from './actions'
-import { SquarePen, Trash2 } from 'lucide-react'
+import { Pen, PenLine, Trash2 } from 'lucide-react'
 
 export function UserTable() {
   const router = useRouter()
@@ -70,39 +70,41 @@ export function UserTable() {
       <div className="flex mb-4">
         <Button onClick={() => setIsAddUserOpen(true)}>Adicionar Usuário</Button>
       </div>
-      <Table>
-        <TableHeader className='bg-gray-100'>
-          <TableRow>
-            <TableHead>Nome</TableHead>
-            <TableHead>Email</TableHead>
-            <TableHead>Role</TableHead>
-            <TableHead>Ações</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {users.map((user) => (
-            <TableRow key={user.id}>
-              <TableCell>{user.name}</TableCell>
-              <TableCell>{user.email}</TableCell>
-              <TableCell>{user.role}</TableCell>
-              <TableCell>
-                <Button size={'icon'} className="mr-2 text-black bg-yellow-400 hover:bg-yellow-300 transition-colors" onClick={() => setEditingUser(user)}>
-                  <SquarePen />
-                </Button>
-                <Button size={'icon'} variant="destructive" onClick={() => setDeletingUserId(user.id || null)}>
-                  <Trash2 />
-                </Button>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
 
+      <div className='border rounded-lg shadow-sm'>
+        <Table>
+          <TableHeader className='bg-gray-100'>
+            <TableRow>
+              <TableHead>Nome</TableHead>
+              <TableHead>Email</TableHead>
+              <TableHead>Role</TableHead>
+              <TableHead>Ações</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {users.map((user) => (
+              <TableRow key={user.id}>
+                <TableCell>{user.name}</TableCell>
+                <TableCell>{user.email}</TableCell>
+                <TableCell>{user.role}</TableCell>
+                <TableCell>
+                  <Button size={'icon'} variant="outline" className="mr-2 text-yellow-500" onClick={() => setEditingUser(user)}>
+                    <PenLine />
+                  </Button>
+                  <Button size={'icon'} variant="outline" className="mr-2 text-red-500" onClick={() => setDeletingUserId(user.id || null)}>
+                    <Trash2 />
+                  </Button>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
       <div className="mt-4">
         <Pagination>
           <PaginationContent>
             <PaginationItem>
-              <PaginationPrevious 
+              <PaginationPrevious
                 href="#"
                 onClick={(e) => {
                   e.preventDefault();
@@ -112,7 +114,7 @@ export function UserTable() {
             </PaginationItem>
             {[...Array(totalPages)].map((_, index) => (
               <PaginationItem key={index}>
-                <PaginationLink 
+                <PaginationLink
                   href="#"
                   onClick={(e) => {
                     e.preventDefault();
@@ -125,7 +127,7 @@ export function UserTable() {
               </PaginationItem>
             ))}
             <PaginationItem>
-              <PaginationNext 
+              <PaginationNext
                 href="#"
                 onClick={(e) => {
                   e.preventDefault();
@@ -161,7 +163,7 @@ export function UserTable() {
           <AlertDialogHeader>
             <AlertDialogTitle>Tem certeza de que deseja excluir este usuário?</AlertDialogTitle>
             <AlertDialogDescription>
-            Esta ação não pode ser desfeita.
+              Esta ação não pode ser desfeita.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
