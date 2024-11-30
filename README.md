@@ -5,6 +5,16 @@
  
 - **Problema Resolvido**: O Instituto Federal do Mato Grosso do Sul enfrenta desafios na organização de trocas e substituições de aulas entre professores, especialmente em situações de ausência ou necessidade de ajuste de horários devido à greve ocorrida no ano de 2024. Atualmente, a comunicação e busca por professores disponíveis para substituir aulas são processos manuais, demorados e sujeitos a erros, o que pode afetar a continuidade das atividades educacionais aos alunos  
 
+## Funcionalidades  
+- **Consulta de horários e disponibilidade:** Professores poderão consultar horários de aulas e visualizar automaticamente colegas disponíveis para substituição em horários específicos.
+- **Solicitação de troca/substituição:** O sistema permitirá que professores solicitem trocas ou substituições de aulas, agilizando o processo de substituição com notificações automáticas.
+- **Painel de aprovações:** Coordenadores e diretores terão acesso a um painel para aprovar, rejeitar ou revisar solicitações de troca, garantindo que as trocas de horários sigam as políticas institucionais.
+- **Notificação aos alunos:** Após a aprovação de uma troca, o sistema enviará automaticamente e-mails aos alunos da turma envolvida, informando o local e o horário da aula substituída.
+
+## Demonstração  
+Acesse: <a href="https://gerenciamento-aula.vercel.app/">Acessar Deploy do Projeto</a> 
+<!-- Inclua links para imagens, GIFs ou vídeos demonstrando o projeto -->  
+
 ## Tecnologias Utilizadas 
 ### Frontend
 - **Linguagens**: React, typescript  
@@ -16,15 +26,6 @@
 - **Frameworks**: Spring boot, Spring Security 
 - **Bibliotecas**: Lombok, Maps
 
-## Funcionalidades  
-- **Consulta de horários e disponibilidade:** Professores poderão consultar horários de aulas e visualizar automaticamente colegas disponíveis para substituição em horários específicos.
-- **Solicitação de troca/substituição:** O sistema permitirá que professores solicitem trocas ou substituições de aulas, agilizando o processo de substituição com notificações automáticas.
-- **Painel de aprovações:** Coordenadores e diretores terão acesso a um painel para aprovar, rejeitar ou revisar solicitações de troca, garantindo que as trocas de horários sigam as políticas institucionais.
-- **Notificação aos alunos:** Após a aprovação de uma troca, o sistema enviará automaticamente e-mails aos alunos da turma envolvida, informando o local e o horário da aula substituída.
-
-## Demonstração  
-Acesse: <a href="https://gerenciamento-aula.vercel.app/">Acessar Deploy do Projeto</a> 
-<!-- Inclua links para imagens, GIFs ou vídeos demonstrando o projeto -->  
 
 ---
 
