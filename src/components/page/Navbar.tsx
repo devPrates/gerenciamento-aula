@@ -98,7 +98,7 @@ const DesktopMenu = ({ activeSection }: { activeSection: string }) => (
 const LoginButton = () => (
   <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-2 lg:items-center">
     <ModeToggle />
-    <Link href="/dashboard">
+    <Link href="/login">
       <Button size="sm" variant="outline">
         Login
       </Button>

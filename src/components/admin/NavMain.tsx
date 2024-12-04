@@ -29,7 +29,7 @@ export default function NavMain({
         {items.map((item) => {
           const isActive = pathname === item.url; // Verifica se a URL atual corresponde ao item
           return (
-            <SidebarMenuItem key={item.title}>
+            <SidebarMenuItem key={item.title} className="text-lg">
               <SidebarMenuButton asChild>
                 <a
                   href={item.url}
