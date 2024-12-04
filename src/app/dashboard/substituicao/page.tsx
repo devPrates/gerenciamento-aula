@@ -19,6 +19,10 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover'
 import { BreadcrumbComponent } from '@/components/admin/BreadcrumbComponent'
+import RadialChart from '@/components/admin/RadialChart'
+import { users } from '@/types/card'
+import { UserAvailable } from '@/components/admin/UserAvailable'
+import { ScrollArea } from '@/components/ui/scroll-area'
 
 // Dados falsos
 const courses = [
@@ -61,16 +65,16 @@ export default function TeacherExchange() {
   const availableTeachers = selectedCourse && selectedClass && date
     ? teachers.filter(t => t.subject === selectedCourseObj?.name)
     : []
-    const direitorioItems = [
-      { label: "dashboard", href: "/dashboard" },
-      { label: "Substituição", href: "/substituicao" },
-    ];
+  const direitorioItems = [
+    { label: "Dashboard", href: "/dashboard" },
+    { label: "Substituição", href: "/substituicao" },
+  ];
 
 
   return (
-    <section>
-      <BreadcrumbComponent  items={direitorioItems} />
-      <div className='flex justify-center gap-3 mt-2'>
+    <section className='p-8 flex flex-col gap-2'>
+      <BreadcrumbComponent items={direitorioItems} />
+      <div className='flex justify-center gap-3 mt-2 p-4 border rounded-md bg-gray-200'>
         <Select
           value={selectedCourse}
           onValueChange={(value) => {
@@ -131,22 +135,45 @@ export default function TeacherExchange() {
           </PopoverContent>
         </Popover>
       </div>
-      {availableTeachers.length > 0 ? (
-        <div className="mt-4">
+
+      <section className='grid grid-cols-1  gap-4 w-full md:grid-cols-2'>
+        <div className="p-4 text-black rounded border">
           <h3 className="text-lg font-semibold mb-2">Professores Disponíveis:</h3>
-          <ul className="space-y-2">
-            {availableTeachers.map((teacher) => (
-              <li key={teacher.id} className="bg-secondary p-2 rounded">
-                <span className="font-medium">{teacher.name}</span> - {teacher.subject}
-              </li>
-            ))}
-          </ul>
+          {availableTeachers.length > 0 ? (
+            <div className="mt-4">
+              <ul className="space-y-2">
+                {availableTeachers.map((teacher) => (
+                  <li key={teacher.id} className="bg-secondary p-2 rounded">
+                    <span className="font-medium">{teacher.name}</span> - {teacher.subject}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : (selectedCourse && selectedClass && date) ? (
+            <div className="mt-4 text-center text-muted-foreground">
+              Nenhum professor disponível para a data selecionada.
+            </div>
+          ) : null}
+          
         </div>
-      ) : (selectedCourse && selectedClass && date) ? (
-        <div className="mt-4 text-center text-muted-foreground">
-          Nenhum professor disponível para a data selecionada.
+
+
+
+
+
+
+
+
+        
+        <div className="p-4 text-black rounded border">
+        <ScrollArea className="h-[65vh] ">
+          <RadialChart />
+          {users.map(user => (
+            <UserAvailable key={user.id} user={user} />
+          ))}
+        </ScrollArea>
         </div>
-      ) : null}
+      </section>
     </section>
   )
 }
