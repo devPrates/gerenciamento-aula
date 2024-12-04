@@ -57,13 +57,11 @@ export const data = {
         url: "/dashboard/trocaula",
         icon: ReplaceAll,
       },
-      ,
       {
         title: "Relatórios",
         url: "/dashboard/relatorios",
         icon: FileText,
       },
-      ,
       {
         title: "Notificações",
         url: "/dashboard/notificacoes",
@@ -73,12 +71,12 @@ export const data = {
     navSecondary: [
       {
         title: "Suporte",
-        url: "#",
+        url: "",
         icon: LifeBuoy,
       },
       {
         title: "Configurações",
-        url: "#",
+        url: "",
         icon: Settings,
       },
     ],

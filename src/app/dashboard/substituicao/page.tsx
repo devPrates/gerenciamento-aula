@@ -18,7 +18,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { BreadcrumbComponent } from '@/components/admin/BreadcrumbComponent'
 
 // Dados falsos
 const courses = [
@@ -61,13 +61,16 @@ export default function TeacherExchange() {
   const availableTeachers = selectedCourse && selectedClass && date
     ? teachers.filter(t => t.subject === selectedCourseObj?.name)
     : []
+    const direitorioItems = [
+      { label: "dashboard", href: "/dashboard" },
+      { label: "Substituição", href: "/substituicao" },
+    ];
+
 
   return (
-    <Card className="w-full max-w-3xl mx-auto">
-      <CardHeader>
-        <CardTitle>Buscar Professores para Troca de Aula</CardTitle>
-      </CardHeader>
-      <CardContent className="space-y-4">
+    <section>
+      <BreadcrumbComponent  items={direitorioItems} />
+      <div className='flex justify-center gap-3 mt-2'>
         <Select
           value={selectedCourse}
           onValueChange={(value) => {
@@ -127,24 +130,23 @@ export default function TeacherExchange() {
             />
           </PopoverContent>
         </Popover>
-
-        {availableTeachers.length > 0 ? (
-          <div className="mt-4">
-            <h3 className="text-lg font-semibold mb-2">Professores Disponíveis:</h3>
-            <ul className="space-y-2">
-              {availableTeachers.map((teacher) => (
-                <li key={teacher.id} className="bg-secondary p-2 rounded">
-                  <span className="font-medium">{teacher.name}</span> - {teacher.subject}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ) : (selectedCourse && selectedClass && date) ? (
-          <div className="mt-4 text-center text-muted-foreground">
-            Nenhum professor disponível para a data selecionada.
-          </div>
-        ) : null}
-      </CardContent>
-    </Card>
+      </div>
+      {availableTeachers.length > 0 ? (
+        <div className="mt-4">
+          <h3 className="text-lg font-semibold mb-2">Professores Disponíveis:</h3>
+          <ul className="space-y-2">
+            {availableTeachers.map((teacher) => (
+              <li key={teacher.id} className="bg-secondary p-2 rounded">
+                <span className="font-medium">{teacher.name}</span> - {teacher.subject}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : (selectedCourse && selectedClass && date) ? (
+        <div className="mt-4 text-center text-muted-foreground">
+          Nenhum professor disponível para a data selecionada.
+        </div>
+      ) : null}
+    </section>
   )
 }
