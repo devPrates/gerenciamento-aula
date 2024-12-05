@@ -31,7 +31,7 @@ export default function DashboardLayout({
               <SidebarTrigger className="-ml-1" />
               <Separator orientation="vertical" className="mr-2 h-4" />
             </div>
-            <div className="flex justify-end gap-2 items-center">
+            <div className="hidden sm:flex justify-end gap-2 items-center">
               <form action="" className="flex max-w-sm items-center space-x-2">
                 <Input type="text" placeholder="Pesquisar..." />
                 <Button type="submit">Buscar</Button>

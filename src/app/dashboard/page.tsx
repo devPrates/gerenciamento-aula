@@ -1,8 +1,8 @@
 'use client'
 
-import AccessChart from '@/components/admin/AccessChart'
-import ClassChangeChart from '@/components/admin/ClassChangeChart'
+import AcessChart from '@/components/admin/AcessChart';
 import { BreadcrumbComponent } from '@/components/admin/BreadcrumbComponent'
+import ReplaceChart from '@/components/admin/ReplaceChart';
 
 import StatCard from '@/components/admin/StatCard'
 import { Building2, GraduationCap, Users, UserSquare2 } from 'lucide-react'
@@ -23,9 +23,9 @@ export default function DashboardPage() {
         <StatCard title="Turmas Cadastradas" value={50} icon={<Users className="h-4 w-4 text-muted-foreground" />} />
         <StatCard title="Professores Cadastrados" value={100} icon={<UserSquare2 className="h-4 w-4 text-muted-foreground" />} />
       </div>
-      <div className="grid gap-4 lg:grid-cols-2">
-        <AccessChart />
-        <ClassChangeChart />
+      <div className="grid gap-2 grid-cols-1 lg:grid-cols-2">
+        <ReplaceChart />
+        <AcessChart />
       </div>
     </div>
   )
