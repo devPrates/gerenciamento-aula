@@ -8,7 +8,7 @@ import ServicesComponent from "@/components/page/Services";
 
 export default function Home() {
   return (
-    <div>
+    <div className="dark:bg-background">
       <Navbar />
       <Hero />
       <Rooms />

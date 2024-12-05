@@ -9,7 +9,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 export default function ContactForm() {
 
   return (
-    <div className="container mx-auto px-14 py-12">
+    <div className="container mx-auto px-8 lg:px-36 py-12" id="contato">
       <div className="grid gap-8 lg:grid-cols-2">
         {/* Left Column - Enhanced Contact Information */}
         <div className="space-y-8">
