@@ -157,13 +157,6 @@ export default function TeacherExchange() {
           
         </div>
 
-
-
-
-
-
-
-
         
         <div className="p-4 text-black rounded border">
         <ScrollArea className="h-[65vh] ">

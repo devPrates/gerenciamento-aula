@@ -27,7 +27,7 @@ export default function Hero() {
       {/* Seção principal do Hero */}
       <div className="text-center">
         {/* Título do sistema */}
-        <h1 className="text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl dark:text-white">
+        <h1 className="text-balance text-5xl font-extrabold tracking-tight text-gray-900 sm:text-7xl dark:text-white">
           Sistema de <span className="text-primary dark:text-[#22c55e]">Troca & Substituição</span> de aulas
         </h1>
 

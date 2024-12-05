@@ -1,103 +1,61 @@
-"use client"
+import { FileText, Mails, Replace, ReplaceAll } from 'lucide-react'
 
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { Calendar, Repeat, UserPlus } from "lucide-react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "../ui/button"
+const features = [
+  {
+    name: 'Substituição de Aulas',
+    description:
+      'Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi. Odio urna massa nunc massa.',
+    icon: Replace,
+  },
+  {
+    name: 'Documentação Digital',
+    description:
+      'Sit quis amet rutrum tellus ullamcorper ultricies libero dolor eget. Sem sodales gravida quam turpis enim lacus amet.',
+    icon: FileText,
+  },
+  {
+    name: 'Troca de Aulas',
+    description:
+      'Quisque est vel vulputate cursus. Risus proin diam nunc commodo. Lobortis auctor congue commodo diam neque.',
+    icon: ReplaceAll,
+  },
+  {
+    name: 'Notificação aos Alunos',
+    description:
+      'Arcu egestas dolor vel iaculis in ipsum mauris. Tincidunt mattis aliquet hac quis. Id hac maecenas ac donec pharetra eget.',
+    icon: Mails,
+  },
+]
 
-// Card para visualização de horários
-const ScheduleCard = () => (
-  <Card className="w-full">
-    <CardHeader>
-      <CardTitle className="flex items-center">
-        <Calendar className="mr-2" />
-        Quadro de Horários
-      </CardTitle>
-      <CardDescription>Visualize e gerencie os horários das aulas</CardDescription>
-    </CardHeader>
-    <CardContent>
-      <p>Acesse o quadro de horários atualizado para todas as turmas e professores.</p>
-      <ul className="mt-2 list-disc list-inside">
-        <li>Horários semanais</li>
-        <li>Visualização por turma ou professor</li>
-        <li>Exportação em PDF</li>
-      </ul>
-      <Button className="mt-4" size="sm">Mais Informações</Button>
-    </CardContent>
-  </Card>
-)
-
-// Card para trocas de aulas
-const ClassSwapCard = () => (
-  <Card className="w-full">
-    <CardHeader>
-      <CardTitle className="flex items-center">
-        <Repeat className="mr-2" />
-        Troca de Aulas
-      </CardTitle>
-      <CardDescription>Solicite e gerencie trocas de aulas</CardDescription>
-    </CardHeader>
-    <CardContent>
-      <p>Sistema fácil para solicitar e aprovar trocas de aulas entre professores.</p>
-      <ul className="mt-2 list-disc list-inside">
-        <li>Solicitação rápida</li>
-        <li>Aprovação da coordenação</li>
-        <li>Notificações automáticas</li>
-      </ul>
-      <Button className="mt-4" size="sm">Mais Informações</Button>
-    </CardContent>
-  </Card>
-)
-
-// Card para substituições de professores
-const SubstitutionCard = () => (
-  <Card className="w-full">
-    <CardHeader>
-      <CardTitle className="flex items-center">
-        <UserPlus className="mr-2" />
-        Substituição de Aulas
-      </CardTitle>
-      <CardDescription>Gerencie substituições de professores</CardDescription>
-    </CardHeader>
-    <CardContent>
-      <p>Organize substituições de professores de forma rápida e eficiente.</p>
-      <ul className="mt-2 list-disc list-inside">
-        <li>Banco de professores substitutos</li>
-        <li>Matching automático</li>
-        <li>Histórico de substituições</li>
-      </ul>
-      <Button className="mt-4" size="sm">Mais Informações</Button>
-    </CardContent>
-  </Card>
-)
-
-// Componente principal que renderiza os serviços
-export default function ServicesComponent() {
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null)
-
+export default function Example() {
   return (
-    <div className="container mx-auto min-h-screen flex flex-col justify-center items-center" id="serviços">
-      {/* Título da seção */}
-      <h2 className="text-3xl font-bold text-center mb-8">Nossos Serviços</h2>
-
-      {/* Grade com os cards de serviços */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {[ScheduleCard, ClassSwapCard, SubstitutionCard].map((Card, index) => (
-          <motion.div
-            key={index}
-            whileHover={{ scale: 1.05 }} // Efeito de hover
-            whileTap={{ scale: 0.95 }} // Efeito ao clicar
-            onHoverStart={() => setHoveredCard(index)} // Atualiza estado ao iniciar hover
-            onHoverEnd={() => setHoveredCard(null)} // Reseta estado ao finalizar hover
-            className="transform transition-all duration-300 ease-in-out"
-          >
-            {/* Card renderizado dinamicamente */}
-            <div className={`h-full ${hoveredCard === index ? "shadow-lg" : "shadow"} rounded-lg overflow-hidden`}>
-              <Card />
-            </div>
-          </motion.div>
-        ))}
+    <div className="bg-white py-24 sm:py-32" id="serviços" >
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl lg:text-center">
+          <h2 className="text-base/7 font-semibold text-green-500">Troca ou Substituição em Minutos</h2>
+          <p className="mt-2 text-4xl font-bold tracking-tight text-pretty text-gray-900 sm:text-5xl lg:text-balance">
+            Tudo que você precisa para Trocar ou Substituir sua aula
+          </p>
+          <p className="mt-6 text-lg/8 text-gray-600">
+            Quis tellus eget adipiscing convallis sit sit eget aliquet quis. Suspendisse eget egestas a elementum
+            pulvinar et feugiat blandit at. In mi viverra elit nunc.
+          </p>
+        </div>
+        <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
+          <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
+            {features.map((feature) => (
+              <div key={feature.name} className="relative pl-16">
+                <dt className="text-base/7 font-semibold text-gray-900">
+                  <div className="absolute top-0 left-0 flex size-10 items-center justify-center rounded-lg bg-green-500">
+                    <feature.icon aria-hidden="true" className="size-6 text-white" />
+                  </div>
+                  {feature.name}
+                </dt>
+                <dd className="mt-2 text-base/7 text-gray-600">{feature.description}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
       </div>
     </div>
   )

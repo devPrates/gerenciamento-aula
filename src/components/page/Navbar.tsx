@@ -87,7 +87,7 @@ const DesktopMenu = ({ activeSection }: { activeSection: string }) => (
         key={section}
         onClick={() => scrollToSection(section)}
         className={`${activeSection === section ? 'text-green-500' : ''
-          } hover:underline`}
+          } font-medium hover:text-green-500`}
       >
         {capitalize(section)}
       </button>
