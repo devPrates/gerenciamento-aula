@@ -9,9 +9,6 @@ import {
 import { ModeToggle } from "@/components/ToggleDarkMode";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Accessibility, Bell } from "lucide-react";
-
-
 
 
 export const metadata: Metadata = {
@@ -28,10 +25,12 @@ export default function DashboardLayout({
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
-        <header className="flex h-16 shrink-0 border-b-[1px] items-center gap-2">
-          <div className="flex items-center gap-2 px-4">
-            <SidebarTrigger className="-ml-1" />
-            <Separator orientation="vertical" className="mr-2 h-4" />
+        <header className="flex h-16 min-w-full shrink-0 border-b-[1px] items-center gap-2">
+          <div className="min-w-full flex items-center justify-between gap-2 px-4">
+            <div className="flex items-center gap-2">
+              <SidebarTrigger className="-ml-1" />
+              <Separator orientation="vertical" className="mr-2 h-4" />
+            </div>
             <div className="flex justify-end gap-2 items-center">
               <form action="" className="flex max-w-sm items-center space-x-2">
                 <Input type="text" placeholder="Pesquisar..." />
