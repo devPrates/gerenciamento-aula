@@ -6,9 +6,8 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar"
-import { ModeToggle } from "@/components/ToggleDarkMode";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { Bell, BellRing, LogOut, Search, Settings } from "lucide-react";
+import Darkmode from "@/components/admin/darkmode";
 
 
 export const metadata: Metadata = {
@@ -32,11 +31,18 @@ export default function DashboardLayout({
               <Separator orientation="vertical" className="mr-2 h-4" />
             </div>
             <div className="hidden sm:flex justify-end gap-2 items-center">
-              <form action="" className="flex max-w-sm items-center space-x-2">
-                <Input type="text" placeholder="Pesquisar..." />
-                <Button type="submit">Buscar</Button>
-              </form>
-              <ModeToggle />
+              <div className="relative">
+                <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
+                <input
+                  type="text"
+                  placeholder="Pesquisar..."
+                  className="w-full rounded-md border border-input bg-background pl-8 pr-4 py-2 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                />
+              </div>
+                <Settings className="h-5 w-5"/>    
+                <BellRing className="h-5 w-5"/>
+                <Darkmode />
+                <LogOut className="h-5 w-5"/>
             </div>
           </div>
         </header>

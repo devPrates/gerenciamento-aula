@@ -12,7 +12,7 @@
 - **Notificação aos alunos:** Após a aprovação de uma troca, o sistema enviará automaticamente e-mails aos alunos da turma envolvida, informando o local e o horário da aula substituída.
 
 ## Demonstração  
-Acesse: <a href="https://gerenciamento-aula.vercel.app/">Acessar Deploy do Projeto</a> 
+Acesse: <a href="https://gerenciamentoaula.vercel.app/">Acessar Deploy do Projeto</a> 
 <!-- Inclua links para imagens, GIFs ou vídeos demonstrando o projeto -->  
 
 ## Tecnologias Utilizadas 

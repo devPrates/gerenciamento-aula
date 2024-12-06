@@ -12,7 +12,7 @@ export default function ContactForm() {
     <div className="container mx-auto px-8 lg:px-36 py-12" id="contato">
       <div className="grid gap-8 lg:grid-cols-2">
         {/* Left Column - Enhanced Contact Information */}
-        <div className="space-y-8">
+        <div className="space-y-8 p-4 border rounded-lg">
           <div>
             <h1 className="text-4xl font-bold tracking-tight bg-gradient-to-r from-green-400 to-green-900 bg-clip-text text-transparent">Entre em Contato</h1>
             <p className="mt-4 text-muted-foreground">
@@ -65,7 +65,7 @@ export default function ContactForm() {
         </div>
 
         {/* Right Column - Form (unchanged) */}
-        <form className="space-y-6">
+        <form className="space-y-6 p-4 border rounded-lg">
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="space-y-2">
               <label htmlFor="firstName" className="text-sm font-medium">
