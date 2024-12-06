@@ -19,37 +19,26 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover'
 import { BreadcrumbComponent } from '@/components/admin/BreadcrumbComponent'
-import RadialChart from '@/components/admin/RadialChart'
-import { users } from '@/types/card'
-import { UserAvailable } from '@/components/admin/UserAvailable'
+import UserAvailable  from '@/components/admin/UserAvailable'
 import { ScrollArea } from '@/components/ui/scroll-area'
 
 // Dados falsos
 const courses = [
-  { id: '1', name: 'Matemática' },
-  { id: '2', name: 'Português' },
-  { id: '3', name: 'História' },
+  { id: '1', name: 'AGRICULTURA' },
+  { id: '2', name: 'TADS' },
+  { id: '3', name: 'AGRONOMIA' },
 ]
 
 const classes = [
-  { id: '1', name: '1º Ano A', courseId: '1' },
-  { id: '2', name: '1º Ano B', courseId: '1' },
-  { id: '3', name: '2º Ano A', courseId: '1' },
-  { id: '4', name: '1º Ano A', courseId: '2' },
-  { id: '5', name: '1º Ano B', courseId: '2' },
-  { id: '6', name: '2º Ano A', courseId: '2' },
-  { id: '7', name: '1º Ano A', courseId: '3' },
-  { id: '8', name: '1º Ano B', courseId: '3' },
-  { id: '9', name: '2º Ano A', courseId: '3' },
-]
-
-const teachers = [
-  { id: '1', name: 'João Silva', subject: 'Matemática' },
-  { id: '2', name: 'Maria Santos', subject: 'Português' },
-  { id: '3', name: 'Carlos Oliveira', subject: 'História' },
-  { id: '4', name: 'Ana Rodrigues', subject: 'Matemática' },
-  { id: '5', name: 'Pedro Alves', subject: 'Português' },
-  { id: '6', name: 'Lúcia Ferreira', subject: 'História' },
+  { id: '1', name: '1022', courseId: '1' },
+  { id: '2', name: '1023', courseId: '1' },
+  { id: '3', name: '1024', courseId: '1' },
+  { id: '4', name: '2022', courseId: '2' },
+  { id: '5', name: '2023', courseId: '2' },
+  { id: '6', name: '2023', courseId: '2' },
+  { id: '7', name: '3222', courseId: '3' },
+  { id: '8', name: '3223', courseId: '3' },
+  { id: '9', name: '3224', courseId: '3' },
 ]
 
 export default function TeacherExchange() {
@@ -61,20 +50,17 @@ export default function TeacherExchange() {
     ? classes.filter(c => c.courseId === selectedCourse)
     : []
 
-  const selectedCourseObj = courses.find(c => c.id === selectedCourse)
-  const availableTeachers = selectedCourse && selectedClass && date
-    ? teachers.filter(t => t.subject === selectedCourseObj?.name)
-    : []
+  
   const direitorioItems = [
     { label: "Dashboard", href: "/dashboard" },
-    { label: "Substituição", href: "/substituicao" },
+    { label: "Substituição", href: "/dashboard/substituicao" },
   ];
 
 
   return (
     <section className='p-8 flex flex-col gap-2'>
       <BreadcrumbComponent items={direitorioItems} />
-      <div className='flex justify-center gap-3 mt-2 p-4 border rounded-md bg-gray-200'>
+      <div className='flex justify-center gap-3 mt-2 p-4 border rounded-md bg-gray-100'>
         <Select
           value={selectedCourse}
           onValueChange={(value) => {
@@ -138,32 +124,15 @@ export default function TeacherExchange() {
 
       <section className='grid grid-cols-1  gap-4 w-full md:grid-cols-2'>
         <div className="p-4 text-black rounded border">
-          <h3 className="text-lg font-semibold mb-2">Professores Disponíveis:</h3>
-          {availableTeachers.length > 0 ? (
-            <div className="mt-4">
-              <ul className="space-y-2">
-                {availableTeachers.map((teacher) => (
-                  <li key={teacher.id} className="bg-secondary p-2 rounded">
-                    <span className="font-medium">{teacher.name}</span> - {teacher.subject}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ) : (selectedCourse && selectedClass && date) ? (
-            <div className="mt-4 text-center text-muted-foreground">
-              Nenhum professor disponível para a data selecionada.
-            </div>
-          ) : null}
+          <h1>calendario</h1>
           
         </div>
 
         
-        <div className="p-4 text-black rounded border">
+        <div className="p-4 rounded border">
         <ScrollArea className="h-[65vh] ">
-          <RadialChart />
-          {users.map(user => (
-            <UserAvailable key={user.id} user={user} />
-          ))}
+          <h1>Professores Disponíveis:</h1>
+            <UserAvailable  /> 
         </ScrollArea>
         </div>
       </section>

@@ -56,47 +56,6 @@ export const mockClasses: ClassData[] = [
     },
 ];
 
-export interface User {
-    id: number;
-    name: string;
-    email: string;
-    avatar: string;
-    status: 'disponivel' | 'indisponivel';
-  }
-  
-
-
-export const users: User[] = [
-  {
-    id: 1,
-    name: 'John Doe',
-    email: 'john@example.com',
-    avatar: 'https://i.pravatar.cc/150?img=1',
-    status: 'disponivel',
-  },
-  {
-    id: 2,
-    name: 'Jane Smith',
-    email: 'jane@example.com',
-    avatar: 'https://i.pravatar.cc/150?img=2',
-    status: 'indisponivel',
-  },
-  {
-    id: 3,
-    name: 'Bob Johnson',
-    email: 'bob@example.com',
-    avatar: 'https://i.pravatar.cc/150?img=3',
-    status: 'disponivel',
-  },
-  {
-    id: 4,
-    name: 'Alice Brown',
-    email: 'alice@example.com',
-    avatar: 'https://i.pravatar.cc/150?img=4',
-    status: 'indisponivel',
-  },
-];
-
 
   
   

@@ -18,10 +18,10 @@ export default function DashboardPage() {
       <BreadcrumbComponent items={direitorioItems} />
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        <StatCard title="Campus Cadastrados" value={5} icon={<Building2 className="h-4 w-4 text-muted-foreground" />} />
-        <StatCard title="Cursos Cadastrados" value={25} icon={<GraduationCap className="h-4 w-4 text-muted-foreground" />} />
-        <StatCard title="Turmas Cadastradas" value={50} icon={<Users className="h-4 w-4 text-muted-foreground" />} />
-        <StatCard title="Professores Cadastrados" value={100} icon={<UserSquare2 className="h-4 w-4 text-muted-foreground" />} />
+        <StatCard title="Campus Cadastrados" value={5} icon={<Building2 className="h-6 w-6 text-muted-foreground font-extrabold" />} />
+        <StatCard title="Cursos Cadastrados" value={25} icon={<GraduationCap className="h-6 w-6 text-muted-foreground font-extrabold" />} />
+        <StatCard title="Turmas Cadastradas" value={50} icon={<Users className="h-6 w-6 text-muted-foreground font-extrabold" />} />
+        <StatCard title="Professores Cadastrados" value={100} icon={<UserSquare2 className="h-6 w-6 text-muted-foreground font-extrabold" />} />
       </div>
       <div className="grid gap-2 grid-cols-1 lg:grid-cols-2">
         <ReplaceChart />
