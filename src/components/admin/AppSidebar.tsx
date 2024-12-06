@@ -20,6 +20,7 @@ import NavProjects from "./NavProjects"
 import NavSecondary from "./NavSecondary"
 import NavUser from "./NavUser"
 import { data } from "@/lib/sidebar"
+import Image from "next/image"
 
 
 
@@ -32,7 +33,12 @@ export default function AppSidebar({ ...props }: React.ComponentProps<typeof Sid
             <SidebarMenuButton size="lg" asChild>
               <a href="#">
                 <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-                  <Command className="size-4" />
+                  <Image 
+                    src='/iconelogo.svg'
+                    alt="logo do projeto"
+                    width={26}
+                    height={26}
+                  />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-semibold">Class Exchange</span>

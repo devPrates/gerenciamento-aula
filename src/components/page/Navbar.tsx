@@ -63,7 +63,7 @@ export default function Navbar() {
 
 const Logo = () => (
   <div className="flex lg:flex-1">
-    <Image src="/logo.svg" alt="Logo do projeto" width={32} height={32} />
+    <Image src="/logo.svg" alt="Logo do projeto" width={150} height={100} />
   </div>
 );
 

@@ -4,7 +4,7 @@ import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'luc
 
 export function Footer() {
   return (
-    <footer className=" text-gray-600 py-12">
+    <footer className=" text-gray-600 py-12 border-t">
       <div className="container mx-auto px-4 flex flex-col items-center justify-center">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo e Descrição */}
@@ -14,9 +14,8 @@ export function Footer() {
               <Image
                 src="/logo.svg"
                 alt="Logo da ClassExchange"  // Adicionando uma descrição mais clara
-                width={60}
-                height={60}
-                className="rounded-full"
+                width={260}
+                height={160}
               />
             </Link>
             <p className="text-sm">
