@@ -23,7 +23,7 @@ export default function DashboardPage() {
         <StatCard title="Turmas Cadastradas" value={50} icon={<Users className="h-6 w-6 text-muted-foreground font-extrabold" />} />
         <StatCard title="Professores Cadastrados" value={100} icon={<UserSquare2 className="h-6 w-6 text-muted-foreground font-extrabold" />} />
       </div>
-      <div className="grid gap-2 grid-cols-1 lg:grid-cols-2">
+      <div className="grid gap-4 grid-cols-1 lg:grid-cols-2">
         <ReplaceChart />
         <AcessChart />
       </div>

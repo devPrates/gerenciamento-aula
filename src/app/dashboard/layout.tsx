@@ -6,8 +6,9 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar"
-import { Bell, BellRing, LogOut, Search, Settings } from "lucide-react";
+import { Bell, BellRing, LogOut, PowerOff, Search, Settings } from "lucide-react";
 import Darkmode from "@/components/admin/darkmode";
+import Link from "next/link";
 
 
 export const metadata: Metadata = {
@@ -39,10 +40,16 @@ export default function DashboardLayout({
                   className="w-full rounded-md border border-input bg-background pl-8 pr-4 py-2 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
                 />
               </div>
-                <Settings className="h-5 w-5"/>    
-                <BellRing className="h-5 w-5"/>
-                <Darkmode />
-                <LogOut className="h-5 w-5"/>
+              <Link href='/'>
+                <Settings className="h-5 w-5" />
+              </Link>
+              <Link href='/'>
+                <BellRing className="h-5 w-5" />
+              </Link>
+              <Darkmode />
+              <Link href='/'>
+                <PowerOff className="h-5 w-5 text-red-500" />
+              </Link>
             </div>
           </div>
         </header>

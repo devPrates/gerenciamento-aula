@@ -31,7 +31,7 @@ import {
 } from "@/components/ui/pagination"
 import { UserForm } from './UserForm'
 import { getUsers, deleteUser } from './actions'
-import { Pen, PenLine, Trash2 } from 'lucide-react'
+import { FileText, Filter, PenLine, Trash2 } from 'lucide-react'
 
 export function UserTable() {
   const router = useRouter()
@@ -67,13 +67,19 @@ export function UserTable() {
 
   return (
     <section className='container mx-auto'>
-      <div className="flex mb-4">
+      <div className="flex gap-2 mb-4 w-full justify-end">
+        <Button variant={'outline'} size={'icon'}>
+          <Filter />
+        </Button>
+        <Button variant={'outline'} size={'icon'}>
+          <FileText />
+        </Button>
         <Button onClick={() => setIsAddUserOpen(true)}>Adicionar Usuário</Button>
       </div>
 
       <div className='border rounded-lg shadow-sm'>
         <Table>
-          <TableHeader className='bg-gray-100'>
+          <TableHeader className='bg-gray-100 dark:bg-gray-500 dark:text-white rounded-lg'>
             <TableRow>
               <TableHead>Nome</TableHead>
               <TableHead>Email</TableHead>
@@ -89,10 +95,10 @@ export function UserTable() {
                 <TableCell>{user.role}</TableCell>
                 <TableCell>
                   <Button size={'icon'} variant="outline" className="mr-2 text-yellow-500" onClick={() => setEditingUser(user)}>
-                    <PenLine />
+                    <PenLine className='text-yellow-500'/>
                   </Button>
                   <Button size={'icon'} variant="outline" className="mr-2 text-red-500" onClick={() => setDeletingUserId(user.id || null)}>
-                    <Trash2 />
+                    <Trash2 className='text-red-500'/>
                   </Button>
                 </TableCell>
               </TableRow>
