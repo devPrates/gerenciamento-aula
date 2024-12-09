@@ -4,21 +4,21 @@ import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'luc
 
 export function Footer() {
   return (
-    <footer className=" text-gray-600 py-12 border-t">
+    <footer className=" py-12 border-t">
       <div className="container mx-auto px-4 flex flex-col items-center justify-center">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo e Descrição */}
           <div className="space-y-4 flex flex-col items-center">
             <div>
-            <Link href="/" className="">
+            <Link href="/">
               <Image
                 src="/logo.svg"
                 alt="Logo da ClassExchange"  // Adicionando uma descrição mais clara
-                width={260}
-                height={160}
+                width={200}
+                height={100}
               />
             </Link>
-            <p className="text-sm">
+            <p className="text-sm mt-2">
               Fornecendo soluções inovadoras e serviços de qualidade desde 2010.
             </p>
             </div>

@@ -8,7 +8,7 @@ import Times from "@/components/page/Times";
 
 export default function Home() {
   return (
-    <div className="dark:bg-background">
+    <div className="">
       <Navbar />
       <Hero />
       <Times />
