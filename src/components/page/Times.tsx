@@ -49,33 +49,35 @@ export default function Times() {
   ]
 
   return (
-    <div className="container mx-auto px-4 py-12">
-      <h1 className="text-4xl font-bold mb-6 text-center">Quadro de Horários</h1>
-      <p className="text-xl text-center mb-12 text-gray-600">
-        Horarios de troca ou substituição de aulas do seu campus
-      </p>
-      
-      <SearchBar />
-      
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {items.map((item, index) => {
-          const Icon = item.icon
-          return (
-            <Card
-              key={index}
-              className="relative p-6 hover:bg-muted/50 cursor-pointer transition-colors"
-            >
-              <ArrowUpRight className="absolute right-6 top-6 h-5 w-5 text-muted-foreground" />
-              <div className={`mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg ${item.iconBg}`}>
-                <Icon className={`h-6 w-6 ${item.iconColor}`} />
-              </div>
-              <h3 className="mb-2 font-semibold">{item.title}</h3>
-              <p className="text-sm text-muted-foreground">{item.description}</p>
-            </Card>
-          )
-        })}
+    <section className="min-h-screen flex justify-center items-center">
+      <div className="container mx-auto px-4 py-12 " id="horários">
+        <h1 className="text-4xl font-bold mb-6 text-center">Quadro de Horários</h1>
+        <p className="text-xl text-center mb-12 text-gray-600">
+          Horarios de troca ou substituição de aulas do seu campus
+        </p>
+
+        <SearchBar />
+
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {items.map((item, index) => {
+            const Icon = item.icon
+            return (
+              <Card
+                key={index}
+                className="relative p-6 hover:bg-muted/50 cursor-pointer transition-colors"
+              >
+                <ArrowUpRight className="absolute right-6 top-6 h-5 w-5 text-muted-foreground" />
+                <div className={`mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg ${item.iconBg}`}>
+                  <Icon className={`h-6 w-6 ${item.iconColor}`} />
+                </div>
+                <h3 className="mb-2 font-semibold">{item.title}</h3>
+                <p className="text-sm text-muted-foreground">{item.description}</p>
+              </Card>
+            )
+          })}
+        </div>
       </div>
-    </div>
+    </section>
   )
 }
 

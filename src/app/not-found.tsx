@@ -1,22 +1,80 @@
-import Link from 'next/link'
+'use client'
 import { Button } from "@/components/ui/button"
-import { HomeIcon } from 'lucide-react'
+import Image from 'next/image'
+
 
 export default function NotFound() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
-      <div className="text-center space-y-6">
-        <h1 className="text-6xl font-bold text-gray-800 dark:text-gray-200">404</h1>
-        <h2 className="text-3xl font-semibold text-gray-700 dark:text-gray-300">Página não encontrada</h2>
-        <p className="text-xl text-gray-600 dark:text-gray-400">Ops! A página que você está procurando não existe.</p>
-        <Button asChild className="mt-4">
-          <Link href="/" className="flex items-center space-x-2">
-            <HomeIcon className="w-4 h-4" />
-            <span>Voltar para a página inicial</span>
-          </Link>
-        </Button>
+    <section className="bg-white dark:bg-background">
+      <div className="container min-h-screen px-6 py-12 mx-auto lg:flex lg:items-center lg:gap-12">
+        <div className="w-full lg:w-1/2">
+          <p className="text-sm font-medium text-primary">404 error</p>
+          <h1 className="mt-3 text-2xl font-semibold text-gray-800 dark:text-white md:text-3xl">Não Encontramos esta Página</h1>
+          <p className="mt-4 text-gray-500 dark:text-gray-400">
+          Desculpe, a página que você procura não existe.</p>
+
+          <div className="flex items-center mt-6 gap-x-3">
+            <Button onClick={() => window.history.back()}>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 rtl:rotate-180">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
+              </svg>
+              <span>Voltar a página anterior</span>
+            </Button>
+
+            <Button variant={'outline'} onClick={() => window.location.href = "/"}>
+              Voltar para Home
+            </Button>
+          </div>
+
+          <div className="mt-10 space-y-6">
+            <div>
+              <a href="#" className="inline-flex items-center text-sm text-blue-500 gap-x-2 dark:text-blue-400 hover:underline">
+                <span>Documentação</span>
+
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 rtl:rotate-180">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                </svg>
+              </a>
+
+              <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">Mergulhe para saber tudo sobre nosso sitema.</p>
+            </div>
+
+            <div>
+              <a href="#" className="inline-flex items-center text-sm text-blue-500 gap-x-2 dark:text-blue-400 hover:underline">
+                <span>Nosso blog</span>
+
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 rtl:rotate-180">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                </svg>
+              </a>
+
+              <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">Leia as últimas postagens em nosso blog.</p>
+            </div>
+
+            <div>
+              <a href="#" className="inline-flex items-center text-sm text-blue-500 gap-x-2 dark:text-blue-400 hover:underline">
+                <span>Chat para suporte</span>
+
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 rtl:rotate-180">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                </svg>
+              </a>
+
+              <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">Nossa equipe está aqui para ajudar.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="relative w-full mt-8 lg:w-1/2 lg:mt-0">
+          <Image 
+            src={'/notfound.svg'}
+            width={500}
+            height={200}
+            alt='Página não encontrada'
+          />
+        </div>
       </div>
-    </div>
+    </section>
   )
 }
 

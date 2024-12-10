@@ -4,6 +4,12 @@ import Link from "next/link"
 import { Button } from "../ui/button"
 
 export default function Hero() {
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" }); // Rolagem suave até a seção
+    }
+  };
   return (
     <div className="mx-auto flex flex-col justify-start min-h-screen max-w-3xl py-32" id="home">
       {/* Banner superior para destacar uma chamada de atenção */}
@@ -36,12 +42,12 @@ export default function Hero() {
         {/* Botões de ação */}
         <div className="mt-10 flex items-center justify-center gap-x-6 flex-wrap">
           <Link href="#">
-            <Button size="lg">
+            <Button size="lg" onClick={() => window.location.href = "/login"}>
               Fazer Login
             </Button>
           </Link>
           <Link href="#">
-            <Button variant="outline" size="lg" className="bg-transparent">
+            <Button variant="outline" size="lg" className="bg-transparent" onClick={() => scrollToSection("sobre")}>
               Ler mais
             </Button>
           </Link>
