@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 export default function About() {
   return (
     <div className="py-24 sm:py-32" id="sobre">
@@ -20,10 +22,12 @@ export default function About() {
               </div>
               <div className="relative min-h-[30rem] w-full grow [container-type:inline-size] max-lg:mx-auto max-lg:max-w-sm">
                 <div className="absolute inset-x-10 bottom-0 top-10 overflow-hidden rounded-t-[12cqw] border-x-[3cqw] border-t-[3cqw] border-gray-700 bg-gray-900 shadow-2xl">
-                  <img
-                    className="size-full object-cover object-top"
-                    src="https://tailwindui.com/plus/img/component-images/bento-03-mobile-friendly.png"
+                  <Image
+                    src="/mobile.png"
                     alt=""
+                    width={600}
+                    height={400}
+                    className="object-cover object-top"
                   />
                 </div>
               </div>
@@ -40,10 +44,12 @@ export default function About() {
                 </p>
               </div>
               <div className="flex flex-1 items-center justify-center px-8 max-lg:pb-12 max-lg:pt-10 sm:px-10 lg:pb-2">
-                <img
-                  className="w-full max-lg:max-w-xs"
-                  src="https://tailwindui.com/plus/img/component-images/bento-03-performance.png"
-                  alt=""
+                <Image
+                  src="/performance.png"
+                  alt="melhor performance"
+                  width={600} // Ajuste conforme a dimensão real da imagem
+                  height={400} // Ajuste conforme a dimensão real da imagem
+                  className="w-full max-lg:max-w-xs object-contain"
                 />
               </div>
             </div>
@@ -59,10 +65,12 @@ export default function About() {
                 </p>
               </div>
               <div className="flex flex-1 items-center [container-type:inline-size] max-lg:py-6 lg:pb-2">
-                <img
-                  className="h-[min(152px,40cqw)] object-cover"
-                  src="https://tailwindui.com/plus/img/component-images/bento-03-security.png"
+                <Image
+                  src="/security.png"
                   alt=""
+                  width={1520} // Define um valor fixo, mas ajustável conforme necessário
+                  height={152}
+                  className="object-contain"
                 />
               </div>
             </div>
