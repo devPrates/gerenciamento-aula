@@ -1,119 +1,70 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Building2, Mail, Clock } from 'lucide-react'
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { Headset, MailCheck, MapPinCheck, MessageSquareDashed } from "lucide-react"
+
+const contactOptions = [
+  {
+    id: 1,
+    icon: <MailCheck />,
+    title: "Enviar Email",
+    description: "Fale com a nossa equipa.",
+    contact: "example@gmail.com",
+  },
+  {
+    id: 2,
+    icon: <MessageSquareDashed />,
+    title: "Bate-papo para suporte",
+    description: "Estamos aqui para ajudar.",
+    contact: "Iniciar novo bate-papo",
+  },
+  {
+    id: 3,
+    icon: <MapPinCheck />,
+    title: "Visite-nos",
+    description: "Visite a sede da nossa instituição.",
+    contact: "Rua Exemplo, 123 - Naviraí",
+  },
+  {
+    id: 4,
+    icon: <Headset />,
+    title: "Ligue para nós",
+    description: "Seg a Sex das 8h às 17h.",
+    contact: "(67) 1234-5678",
+  },
+];
+
+
 
 export default function ContactForm() {
 
   return (
-    <div className="container mx-auto px-8 lg:px-36 py-12" id="contato">
-      <div className="grid gap-8 lg:grid-cols-2">
-        {/* Left Column - Enhanced Contact Information */}
-        <div className="space-y-8 p-4 border rounded-lg">
-          <div>
-            <h1 className="text-4xl font-bold tracking-tight bg-gradient-to-r from-green-400 to-green-900 bg-clip-text text-transparent">Entre em Contato</h1>
-            <p className="mt-4 text-muted-foreground">
-            Estamos aqui para ajudar e responder a qualquer dúvida que você possa ter. Estamos ansiosos para ouvir de você!
-            </p>
-          </div>
-          
-          <div className="space-y-6">
-            <div className="flex items-center gap-3">
-              <Building2 className="h-5 w-5 text-green-500" />
-              <div>
-                <p className="font-semibold">Câmpus Naviraí</p>
-                <p className="text-gray-500">545 rua, bairo - cidade</p>
-              </div>
-            </div>
-            
-            
-            <div className="flex items-center gap-3">
-              <Mail className="h-5 w-5 text-green-500" />
-              <div>
-                <p className="font-semibold">Email</p>
-                <p className="text-gray-500">mail@example.com</p>
-              </div>
-            </div>
+    <section className=" min-h-screen flex items-center" id="contato">
+      <div className="container px-36 mx-auto">
+        <div className="flex flex-col items-center justify-center">
+          <p className="font-medium text-primary ">Contate-nos</p>
 
-            <div className="flex items-center gap-3">
-              <Clock className="h-5 w-5 text-green-500" />
-              <div>
-                <p className="font-semibold">Horário de Atendimento</p>
-                <p className="text-gray-500">Seg-Sex: 8AM - 11AM | 13PM - 17PM</p>
-              </div>
-            </div>
-          </div>
+          <h1 className="mt-2 text-2xl font-semibold md:text-3xl">Adoraríamos ouvir de você</h1>
 
-
-          <Accordion type="single" collapsible className="w-full">
-            <AccordionItem value="item-1">
-              <AccordionTrigger>Por que nos escolher?</AccordionTrigger>
-              <AccordionContent>
-                We offer unparalleled expertise, personalized solutions, and a commitment to your success. Our team of professionals is dedicated to delivering exceptional results.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-2">
-              <AccordionTrigger>Que serviços oferecemos?</AccordionTrigger>
-              <AccordionContent>
-                We provide a wide range of services including consulting, software development, digital marketing, and customer support solutions tailored to your specific needs.
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
+          <p className="mt-3 text-gray-500 dark:text-gray-400">Nossa equipe está sempre aqui para conversar.</p>
         </div>
 
-        {/* Right Column - Form (unchanged) */}
-        <form className="space-y-6 p-4 border rounded-lg">
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="space-y-2">
-              <label htmlFor="firstName" className="text-sm font-medium">
-                Nome
-              </label>
-              <Input id="firstName" placeholder="Digite seu nome..." required />
-            </div>
-            
-            <div className="space-y-2">
-              <label htmlFor="lastName" className="text-sm font-medium">
-                Sobrenome
-              </label>
-              <Input id="lastName" placeholder="Digite seu sobrenome..." required />
-            </div>
-          </div>
-
-          <div className="space-y-2">
-            <label htmlFor="email" className="text-sm font-medium">
-              Email
-            </label>
-            <Input id="email" type="email" placeholder="mail@example.com" required />
-          </div>
-
-          <div className="space-y-2">
-            <label htmlFor="email" className="text-sm font-medium">
-              Assunto
-            </label>
-            <Input id="email" type="email" placeholder="Duvidas sobre login..." required />
-          </div>
-
-          <div className="space-y-2">
-            <label htmlFor="message" className="text-sm font-medium">
-              Mensagem
-            </label>
-            <Textarea
-              id="message"
-              required
-              className="min-h-[150px]"
-              placeholder="Digite o conteudo aqui..."
-            />
-          </div>
-
-          <Button type="submit" className=" w-full">
-            Enviar Mensagem
-          </Button>
-        </form>
+        <div className="grid grid-cols-1 gap-12 mt-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {contactOptions.map((option) => (
+              <div
+                key={option.id}
+                className="p-4 rounded-lg md:p-6 bg-green-100/80 dark:bg-card"
+              >
+                <span className="inline-block p-3 text-green-500 rounded-lg bg-green-200/80">
+                  {option.icon}
+                </span>
+                <h2 className="mt-4 text-base font-medium text-gray-800 dark:text-white">{option.title}</h2>
+                <p className="mt-2 text-sm text-gray-500 ">{option.description}</p>
+                <p className="mt-2 text-sm underline">{option.contact}</p>
+              </div>
+            ))}
+        </div>
       </div>
-    </div>
+    </section>
   )
 }
 
