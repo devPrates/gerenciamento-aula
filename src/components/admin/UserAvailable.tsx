@@ -35,13 +35,13 @@ const teamMembers: TeamMember[] = [
 
 export default function UserAvailable() {
   return (
-    <div className="container mx-auto py-6 px-10 ">
+    <div className="container mx-auto px-1 ">
       <div className="grid gap-6 grid-cols-1">
         {teamMembers.map((member) => (
           <Card key={member.name} className="overflow-hidden">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardHeader>
               <div className="flex flex-col space-y-1.5">
-                <div className="flex items-center gap-2">
+                <div className="w-full flex items-center justify-between">
                   <span className="font-semibold">{member.name}</span>
                   {member.isAvailable 
                     ?
@@ -56,23 +56,13 @@ export default function UserAvailable() {
                 </div>
                 <p className="text-sm text-muted-foreground">{member.email}</p>
               </div>
-              <Avatar className="h-10 w-10">
-                <AvatarImage src={member.image} alt={`${member.name}'s profile picture`} />
-                <AvatarFallback>{member.name.charAt(0)}</AvatarFallback>
-              </Avatar>
             </CardHeader>
             <CardContent>
             <Separator className='my-3'/>
-              <div className="grid grid-cols-2 gap-2">
                 <Button className="w-full" disabled={member.isAvailable === false} >
                   <Send className="mr-2 h-4 w-4" />
-                  Solicitar Substituição
+                  Solicitar 
                 </Button>
-                <Button variant="outline" className="w-full">
-                  <ListCollapse className="mr-2 h-4 w-4" />
-                  Mais Detalhes
-                </Button>
-              </div>
             </CardContent>
           </Card>
         ))}
