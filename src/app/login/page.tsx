@@ -1,10 +1,10 @@
 import { Metadata } from "next"
 import Link from "next/link"
-import { cn } from "@/lib/utils"
-import { Button, buttonVariants } from "@/components/ui/button"
+import { Button } from "@/components/ui/button"
 import UserAuthForm from "./AuthForm"
 import { UserRound } from "lucide-react"
-import { ModeToggle } from "@/components/ToggleDarkMode"
+import Darkmode from "@/components/admin/darkmode"
+
 
 export const metadata: Metadata = {
   title: "Autenticação - Class Exchange",
@@ -43,7 +43,7 @@ export default function AuthenticationPage() {
         <div className="lg:p-8">
           <div className="absolute top-4 right-4">
             <div className="flex items-center gap-2">
-              <ModeToggle />
+              <Darkmode />
               <Link href='/' >
                 <Button variant='outline'>
                   Página inicial

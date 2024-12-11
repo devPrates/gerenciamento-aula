@@ -60,7 +60,7 @@ export function TeacherSchedule() {
       </Card>
       <Card className="flex-1">
         <CardContent className="p-4">
-          <h2 className="text-2xl font-bold mb-4">
+          <h2 className="text-2xl font-semibold mb-4">
             Agenda do dia {date ? format(date, "dd 'de' MMMM 'de' yyyy", { locale: ptBR }) : ''}
           </h2>
           <ScrollArea className="h-[calc(100vh-200px)]">
@@ -71,10 +71,10 @@ export function TeacherSchedule() {
                 )
                 return (
                   <div key={slot.start} className="flex items-center ">
-                    <span className="w-24 text-[12px] text-gray-500">{`${slot.start} - ${slot.end}`}</span>
+                    <span className="w-24 text-[12px] text-gray-800">{`${slot.start} - ${slot.end}`}</span>
                     {appointment ? (
                       <button
-                        className="flex-1 p-2 bg-blue-100 rounded-md text-left hover:bg-blue-200 transition-colors"
+                        className="flex-1 p-2 bg-green-100 rounded-md text-left hover:bg-green-200 transition-colors"
                         onClick={() => handleAppointmentClick(appointment)}
                       >
                         <p className="font-semibold">{appointment.subject}</p>

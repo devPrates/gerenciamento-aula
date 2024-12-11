@@ -6,7 +6,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '../ui/button';
-import { ModeToggle } from '../ToggleDarkMode';
+import Darkmode from '../admin/darkmode';
 
 const SECTIONS = ["home", "horários", "sobre", "serviços", "contato"];
 
@@ -45,7 +45,7 @@ export default function Navbar() {
   }, [activeSection]);
 
   return (
-    <header className={`sticky inset-x-0 top-0 z-50 ${isScrolled ? 'bg-white shadow-md dark:bg-black dark:text-white' : 'bg-transparent'}`}>
+    <header className={`sticky inset-x-0 top-0 z-50 ${isScrolled ? 'bg-white shadow-md dark:bg-background dark:border-b dark:text-white' : 'bg-transparent'}`}>
       <nav className="container mx-auto flex items-center justify-between p-4">
         <Logo />
         <MobileMenuButton onOpen={() => setMobileMenuOpen(true)} />
@@ -97,7 +97,7 @@ const DesktopMenu = ({ activeSection }: { activeSection: string }) => (
 
 const LoginButton = () => (
   <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-2 lg:items-center">
-    <ModeToggle />
+    <Darkmode />
     <Link href="/login">
       <Button size="sm" variant="outline">
         Login
@@ -148,7 +148,7 @@ const MobileMenu = ({
           </div>
           <div className="py-6">
             <div className='flex gap-2'>
-              <ModeToggle />
+              <Darkmode />
               <Link href="/dashboard" className="">
                 <Button size={'sm'} variant={'outline'}>
                   Login
